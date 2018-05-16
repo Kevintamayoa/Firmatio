@@ -1,0 +1,1023 @@
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Firmatio
+{
+    public class UserType
+    {
+        public int Id { get; set; }
+        public string Description { get; set; }
+
+        public UserType(int id, string description)
+        {
+            Id = id;
+            Description = description;
+        }
+    }//
+    public class Users
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string LastName { get; set; }
+        public int UserTypeId { get; set; }
+        public string Password { get; set; }
+        public int PayTypeId { get; set; }
+        public decimal Salary { get; set; }
+        public decimal HoursDay { get; set; }
+        public int Indirect { get; set; }
+        public string CompleteName
+        {
+            get
+            {
+                return  Name +" "+LastName;
+
+            }
+            set { }
+        }
+
+
+        public Users() { }
+
+        public Users(int id, string name, string lastName, int usertypeid,
+            string password, int paytypeid, decimal salary, decimal hoursday, int indirect)
+        {
+            Id = id;
+            Name = name;
+            LastName = lastName;
+            UserTypeId = usertypeid;
+            Password = password;
+            PayTypeId = paytypeid;
+            Salary = salary;
+            HoursDay = hoursday;
+            Indirect = indirect;
+        }
+    }//
+    public class Accounts
+    {
+        public int Id { get; set; }
+        public int AccountsTypeId { get; set; }
+        public string Description { get; set; }
+        public decimal Amount { get; set; }
+        public Accounts(int id, int accountstypeid, string description, decimal amount)
+        {
+            Id = id;
+            AccountsTypeId = accountstypeid;
+            Description = description;
+            Amount = amount;
+        }
+    }//
+    public class CatVales
+    {
+        public int Id { get; set; }
+        public string Description { get; set; }
+
+        public CatVales(int id, string description)
+        {
+            Id = id;
+            Description = description;
+        }
+        public DateTime Date { get; set; }
+        public int catId { get; set; }
+        public decimal Amount { get; set; }
+        public CatVales(int id,DateTime date, int catid, string description,decimal amount)
+        {
+            Id = id;
+            Date = date;
+            catId = catid;
+            Amount = amount;
+            Description = description;
+        }
+    }//
+    public class AccountsType
+    {
+        public int Id { get; set; }
+        public string Description { get; set; }
+        public AccountsType(int id, string description)
+        {
+            Id = id;
+            Description = description;
+        }
+    }//
+    public class IncomesType
+    {
+        public int Id { get; set; }
+        public string Description { get; set; }
+        public decimal PPT { get; set; }
+        public int Category { get; set; }
+        public IncomesType(int id, string description, decimal ppt, int category)
+        {
+            Id = id;
+            Description = description;
+            PPT = ppt;
+            Category = category;
+        }
+    }//
+    public class FechaTerminado
+    {
+        public int Id { get; set; }
+        public int Proyect_id { get; set; }
+        public DateTime Date { get; set; }
+        public FechaTerminado(int id, int proyect_id, DateTime date)
+        {
+            Id = id;
+            Proyect_id = proyect_id;
+            Date = date;
+        }
+    }
+    public class StandBy
+    {
+        public int Id { get; set; }
+        public int ProyectId { get; set; }
+        public DateTime DateInitial { get; set; }
+        public DateTime DateEnd { get; set; }
+        public int DaysLast { get; set; }
+
+        public StandBy(int id, int proyectid, DateTime dateinitial, DateTime dateend, int daysLast)
+        {
+            Id = id;
+            ProyectId = proyectid;
+            DateInitial = dateinitial;
+            DateEnd = dateend;
+            DaysLast = daysLast;
+        }
+    }
+    public class Incomes
+    {
+        public int Id { get; set; }
+        public DateTime Date { get; set; }
+        public int IncomesTypeId { get; set; }
+        public int ProyectId { get; set; }
+        public string Concept { get; set; }
+        public int AccountId { get; set; }
+        public int Bills { get; set; }
+        public string BillsNumber { get; set; }
+        public decimal Amount { get; set; }
+        public int UserId { get; set; }
+        public Incomes(int id, int incomestype, DateTime date, decimal amount)
+        {
+            Id = id;
+            IncomesTypeId = incomestype;
+            Date = date;
+            Amount = amount;
+        }
+        public Incomes(int id,int id_proyect ,int incomestype, DateTime date, decimal amount)
+        {
+            Id = id;
+            ProyectId = id_proyect;
+            IncomesTypeId = incomestype;
+            Date = date;
+            Amount = amount;
+        }
+        public Incomes(int id, DateTime date, int incomestypeid, int proyectid, string concept, int accountid, int bills, string billsnumber, decimal amount)
+        {
+            Id = id;
+            Date = date;
+            IncomesTypeId = incomestypeid;
+            ProyectId = proyectid;
+            Concept = concept;
+            AccountId = accountid;
+            Bills = bills;
+            BillsNumber = billsnumber;
+            Amount = amount;
+        }
+        public Incomes(int id, DateTime date, int incomestypeid, int proyectid, string concept, int accountid, int bills, string billsnumber, decimal amount,int userId)
+        {
+            Id = id;
+            Date = date;
+            IncomesTypeId = incomestypeid;
+            ProyectId = proyectid;
+            Concept = concept;
+            AccountId = accountid;
+            Bills = bills;
+            BillsNumber = billsnumber;
+            Amount = amount;
+            UserId = userId;
+        }
+        public string IncomeType { get; set; }
+        public string ProjectName { get; set; }
+        public string FormaDePago { get; set; }
+        public string Cuenta { get; set; }
+        public string Usuario { get; set; }
+        public int Mes { get; set; }
+        public decimal Totalmes { get; set; }
+        public Incomes(int mes, int accountid, decimal totalmes)
+        {
+            Mes = mes;
+            AccountId = accountid;
+            Totalmes = totalmes;
+        }
+        public Incomes(int id, int incomestypeid, int proyectid, decimal amount)
+        {
+            Id = id;
+            IncomesTypeId = incomestypeid;
+            ProyectId = proyectid;
+            Amount = amount;
+        }
+        public Incomes(int id, DateTime date, string incometype, string proyectname, string concept, string formadepago, string cuenta, int bills, string billsnumber, decimal amount, string usuario)
+        {
+            Id = id;
+            Date = date;
+            IncomeType = incometype;
+            ProjectName = proyectname;
+            Concept = concept;
+            FormaDePago = formadepago;
+            Cuenta = cuenta;
+            Bills = bills;
+            BillsNumber = billsnumber;
+            Amount = amount;
+            Usuario = usuario;
+        }
+        public Incomes(int id, DateTime date, string incometype, string proyectname, string concept,
+            string formadepago, string cuenta, int bills, string billsnumber, decimal amount)
+        {
+            Id = id;
+            Date = date;
+            IncomeType = incometype;
+            ProjectName = proyectname;
+            Concept = concept;
+            FormaDePago = formadepago;
+            Cuenta = cuenta;
+            Bills = bills;
+            BillsNumber = billsnumber;
+            Amount = amount;
+        }
+    }//
+    public class ManPower
+    {
+        public int Id { get; set; }
+        public int Proyect_Id { get; set; }
+        public string Proyecto { get; set; }
+        public int User_Id { get; set; }
+        public ManPower(int id,int proyect_id, int user_id)   {
+            Id = id;
+            Proyect_Id = proyect_id;
+            User_Id = user_id;
+        }
+        public ManPower( int proyect_id, int user_id,string proyecto)
+        {;
+            Proyecto = proyecto;
+            Proyect_Id = proyect_id;
+            User_Id = user_id;
+        }
+    }//
+    public class Expenses
+    {
+        public int Id { get; set; }
+        public DateTime Date { get; set; }
+        public int ExpensesTypeId { get; set; }
+        public int ProyectId { get; set; }
+        public string Concept { get; set; }
+        public int AccountId { get; set; }
+        public int Bills { get; set; }
+        public string BillsNumber { get; set; }
+        public decimal Amount { get; set; }
+        public int UserId { get; set; }
+        public int Category {get; set; }
+    
+        public Expenses(int id, int expensestypeid, int proyectid, decimal amount)
+        {
+            Id = id;
+            ExpensesTypeId = expensestypeid;
+            ProyectId = proyectid;
+            Amount = amount;
+        }
+        public Expenses(int id, int incomestype, int category, DateTime date, decimal amount)
+        {
+            Id = id;
+            ExpensesTypeId = incomestype;
+            Category = category;
+            Date = date;
+            Amount = amount;
+        }
+        public Expenses(int id,int proyect_id, int incomestype, int category, DateTime date, decimal amount)
+        {
+            Id = id;
+            ProyectId = proyect_id;
+            ExpensesTypeId = incomestype;
+            Category = category;
+            Date = date;
+            Amount = amount;
+        }
+        public Expenses(int id,DateTime date,int expensestypeid, int proyectid, decimal amount)
+        {
+            Id = id;
+            Date = date;
+            ExpensesTypeId = expensestypeid;
+            ProyectId = proyectid;
+            Amount = amount;
+        }
+        public Expenses(int id, DateTime date, int expensestypeid, int proyectid, string concept, int accountid, int bills, string billsnumber, decimal amount)
+        {
+            Id = id;
+            Date = date;
+            ExpensesTypeId = expensestypeid;
+            ProyectId = proyectid;
+            Concept = concept;
+            AccountId = accountid;
+            Bills = bills;
+            BillsNumber = billsnumber;
+            Amount = amount;
+        }
+        public Expenses(int id, DateTime date, int expensestypeid, int proyectid, string concept, int accountid, int bills, string billsnumber, decimal amount,int userId)
+        {
+            Id = id;
+            Date = date;
+            ExpensesTypeId = expensestypeid;
+            ProyectId = proyectid;
+            Concept = concept;
+            AccountId = accountid;
+            Bills = bills;
+            BillsNumber = billsnumber;
+            Amount = amount;
+            UserId = userId;
+        }
+        public string ExpensesType { get; set; }
+        public string ProjectName { get; set; }
+        public string FormaDePago { get; set; }
+        public string Cuenta { get; set; }
+        public string Usuario { get; set; }
+        public Expenses(int id, DateTime date, string expensestype, string proyectname, string concept,string formadepago, string cuenta, int bills, string billsnumber, decimal amount, string usuario)
+        {
+            Id = id;
+            Date = date;
+            ExpensesType = expensestype;
+            ProjectName = proyectname;
+            Concept = concept;
+            FormaDePago = formadepago;
+            Cuenta = cuenta;
+            Bills = bills;
+            BillsNumber = billsnumber;
+            Amount = amount;
+            Usuario = usuario;
+        }
+        public Expenses(int id, DateTime date, string expensestype, string proyectname, string concept,
+            string formadepago, string cuenta, int bills, string billsnumber, decimal amount)
+        {
+            Id = id;
+            Date = date;
+            ExpensesType = expensestype;
+            ProjectName = proyectname;
+            Concept = concept;
+            FormaDePago = formadepago;
+            Cuenta = cuenta;
+            Bills = bills;
+            BillsNumber = billsnumber;
+            Amount = amount;
+        }
+        public int Mes { get; set; }
+        public decimal Totalmes { get; set; }
+        public Expenses(int mes, int accountid, decimal totalmes)
+        {
+            Mes = mes;
+            AccountId = accountid;
+            Totalmes = totalmes;
+        }
+    }//
+    public class ExpensesType
+    {
+        public int Id { get; set; }
+        public string Description { get; set; }
+        public decimal PPT { get; set; }
+        public int Category { get; set; }
+        public ExpensesType(int id, string description, decimal ppt, int category)
+        {
+            Id = id;
+            Description = description;
+            PPT = ppt;
+            Category = category;
+        }
+    }//
+    public class Phases
+    {
+        public int Id { get; set; }
+        public string Description { get; set; }
+        public Phases(int id, string description)
+        {
+            Id = id;
+            Description = description;
+        }
+    }//
+    public class Material
+    {
+        public int Id { get; set; }
+        public string Description { get; set; }
+        public decimal Costo { get; set; }
+        public Material(int id, string description, decimal costo)
+        {
+            Id = id;
+            Description = description;
+            Costo = costo;
+        }
+        public DateTime Date { get; set; }
+        public string Proyecto { get; set; }
+        public string Materia { get; set; }
+        public decimal Cantidad { get; set; }
+        public int UserId { get; set; }
+        public Material(int id,DateTime date, string proyecto, string material,decimal cantidad, decimal costo,int userid)
+        {
+            Id = id;
+            Date = date;
+            Proyecto = proyecto;
+            Materia = material;
+            Cantidad = cantidad;
+            Costo = costo;
+            UserId = userid;
+        }
+    }//
+    public class Project
+    {
+        public int Id { get; set; }
+        public string ProyectName { get; set; }
+        public DateTime Date { get; set; }
+        public string Client { get; set; }
+        public int ProyectTypeId { get; set; }
+        public string Ubication { get; set; }
+        public double DurationConceptual { get; set; }      
+        public double DurationAnteproyecto { get; set; }
+        public double DurationArqEjecutivo { get; set; }
+        public double DurationIngenierias { get; set; }
+        public decimal FeeConceptual { get; set; }
+        public decimal FeeAnteproyecto { get; set; }
+        public decimal FeeArqEjecutivo { get; set; }
+        public decimal FeeIngenieria { get; set; }
+        public decimal TotalFee { get; set; }
+        public double NumArqs { get; set; }
+        public double HorasArqs { get; set; }
+        public decimal Subcontrato { get; set; }
+        public int Status { get; set; }
+        public int PremiseType { get; set; }
+        public Project(int id, string proyectname)
+        {
+            Id = id;
+            ProyectName = proyectname;
+        }
+
+        public double DurationEjecutivo { get; set; }
+        public decimal FeeEjecutivo { get; set; }
+        public Project(int id, string proyectname, DateTime date, string client, int proyecttypeid, string ubication,
+          double durationconceptual, double durationanteproyecto, double durationarqejecutivo, double durationingenierias,
+          decimal feeconceptual, decimal feeanteproyecto, decimal feearqejecutivo, decimal feeingenierias
+         , decimal subcontrato, decimal totalfee, double numarqs, double horasarqs,
+          int premiseType, int status,double durationejecutivo,decimal feeEjecutivo)
+        {
+            Id = id;
+            ProyectName = proyectname;
+            Date = date;
+            Client = client;
+            ProyectTypeId = proyecttypeid;
+            Ubication = ubication;
+            DurationConceptual = durationconceptual;
+            DurationAnteproyecto = durationanteproyecto;
+            DurationArqEjecutivo = durationarqejecutivo;
+            DurationIngenierias = durationingenierias;
+            FeeConceptual = feeconceptual;
+            FeeAnteproyecto = feeanteproyecto;
+            FeeArqEjecutivo = feearqejecutivo;
+            FeeIngenieria = feeingenierias;
+            TotalFee = totalfee;
+            Subcontrato = subcontrato;
+            NumArqs = numarqs;
+            HorasArqs = numarqs;
+            Status = status;
+            PremiseType = premiseType;
+            DurationEjecutivo = durationejecutivo;
+            FeeEjecutivo = feeEjecutivo;
+        }
+    }//
+    public class Prospeccion
+    {
+        public int Id { get; set; }
+        public DateTime DateI { get; set; }
+        public DateTime DateF { get; set; }
+        public int Project_id { get; set; }
+        public string Project{get;set;}
+        public string Type { get; set; }                    
+        public decimal Egresos { get; set; }
+        public int Status { get; set; }
+
+        public Prospeccion(int id,DateTime datei, DateTime datef, int project_id, decimal egresos, int status)
+        {
+            Id = id;
+            DateI = datei;
+            DateF = datef;
+            Project_id = project_id;    
+            Status = status;
+            Egresos = egresos;
+        }
+        public Prospeccion(int id,string proyect, string type, DateTime datei, DateTime datef, decimal egresos, int status)
+        {
+            Id = id;
+            DateI = datei;
+            DateF = datef;
+            Project = proyect;
+            Type = type;
+            Status = status;
+            Egresos = egresos;
+        }
+    }//
+    public class MovesCajas
+    {
+        public int Id { get; set; }
+        public DateTime Date { get; set; }
+        public int AccountOutId { get; set; }
+        public int AccountInId { get; set; }
+        public decimal Amount { get; set; }
+        public int UserId { get; set; }
+        public MovesCajas(int id, DateTime date, int accountoutid, int accountinid, decimal amount, int userid)
+        {
+            Id = id;
+            Date = date;
+            AccountInId = accountinid;
+            AccountOutId = accountoutid;
+            Amount = amount;
+            UserId = userid;
+        }
+        public string AccountOut { get; set; }
+        public string AccountIn{ get; set; }
+        public int Mes { get; set; }
+        public MovesCajas(int id, DateTime date, string accountout, string accountin, decimal amount)
+        {
+            Id = id;
+            Date = date;
+            AccountIn = accountin;
+            AccountOut = accountout;
+            Amount = amount;
+        }
+        public MovesCajas(int mes, int accountoutid, int accountinid, decimal amount)
+        {
+            Mes = mes;
+            AccountInId = accountinid;
+            AccountOutId = accountoutid;
+            Amount = amount;
+        }
+    }//
+    public class Render
+    {
+        public int Id { get; set; }
+        public int ProyectId { get; set; }
+        public int Type { get; set; }
+        public int Numrenders { get; set; }
+        public string Details { get; set; }
+        public decimal Monto { get; set; }
+        public int Realizado { get; set; }
+        public Render(int id,int proyectid,int type, int numrenders,string details,decimal monto,int realizado)
+        {
+            Id = id;
+            ProyectId = proyectid;
+            Type = type;
+            Numrenders = numrenders;
+            Details = details;
+            Monto = monto;
+            Realizado = realizado;
+        }
+        public Render(int numrenders)
+        {
+            Numrenders = numrenders;
+        }
+    }//
+    public class PaymentSchedule
+    {
+        public int Id { get; set; }
+        public int ProyectId { get; set; }
+        public int PaymentNumb { get; set; }
+        public double Week { get; set; }
+        public decimal Porcentage { get; set; }
+
+        public PaymentSchedule(int id, int proyectid, int paymentnum, double week, decimal porcentage)
+        {
+            Id = id;
+            ProyectId = proyectid;
+            PaymentNumb = paymentnum;
+            Week = week;
+            Porcentage = porcentage;
+        }
+        public PaymentSchedule(int paymentnum, double week, decimal porcentage)
+        {
+            PaymentNumb = paymentnum;
+            Week = week;
+            Porcentage = porcentage;
+        }
+
+    }//
+    public class ActivitiesProject
+    {
+        public int Id { get; set; }
+        public string Description { get; set; }
+        public int Subphasesproyect_id { get; set; }
+        public int Phasesproyect_id { get; set; }
+
+        public ActivitiesProject(int id, string description, int phasesproyect_id, int subphasesproyect_id)
+        {
+            Id = id;
+            Description = description;
+            Subphasesproyect_id = subphasesproyect_id;
+            Phasesproyect_id = phasesproyect_id;
+        }
+        public ActivitiesProject(int id)
+        {
+            Id = id;
+        }
+
+
+    }//
+    public class ActivitiesContainsProject
+    {
+        public int Id { get; set; }
+        public int Proyect_id { get; set; }
+        public DateTime Date_start { get; set; }
+        public double Duration_ppt { get; set; }
+        public int Activities_id { get; set; }
+        public int Arch_done_id { get; set; }
+        public int Activity_done { get; set; }
+        public int Arch_checked_id { get; set; }
+        public int Activity_checked { get; set; }
+        public int Subphase_id { get; set; }
+        public ActivitiesContainsProject(int id, int proyect_id,DateTime date_start,double duration_ppt, int activities_id, int arch_done_id, int activity_done, int arch_checked_id,
+            int activity_checked)
+        { 
+            Id = id;
+            Proyect_id = proyect_id;
+            Date_start = date_start;
+            Duration_ppt = duration_ppt;
+            Activities_id = activities_id;
+            Arch_done_id = arch_done_id;
+            Activity_done = activity_done;
+            Arch_checked_id = arch_checked_id;
+            Activity_checked = activity_checked;
+
+        }
+        public string Activity { get; set; }
+        public ActivitiesContainsProject(int id,string activity,int subphaseid, int proyect_id, DateTime date_start, double duration_ppt, int activities_id, int arch_done_id, int activity_done, int arch_checked_id,
+           int activity_checked)
+        {
+            Activity = activity;
+            Id = id;
+            Proyect_id = proyect_id;
+            Date_start = date_start;
+            Duration_ppt = duration_ppt;
+            Activities_id = activities_id;
+            Arch_done_id = arch_done_id;
+            Activity_done = activity_done;
+            Arch_checked_id = arch_checked_id;
+            Activity_checked = activity_checked;
+            Subphase_id = subphaseid;
+
+        }
+
+
+    }//
+    public class Subcontracts
+    {
+        public int Id { get; set; }
+        public string Description { get; set; }
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
+        public string BankAccount { get; set; }
+        public string Details { get; set; }
+        public Subcontracts(int id, string description, string email, string phonenumber, string bankaccount, string details)
+        {
+            Id = id;
+            Description = description;
+            Email = email;
+            PhoneNumber = phonenumber;
+            BankAccount = bankaccount;
+            Details = details;
+        }
+        public decimal Amount { get; set; }
+        public Subcontracts(int id, string description, string email, string phonenumber, string bankaccount, string details, decimal amount)
+        {
+            Id = id;
+            Description = description;
+            Email = email;
+            PhoneNumber = phonenumber;
+            BankAccount = bankaccount;
+            Details = details;
+            Amount = amount;
+        }
+    }//
+    public class Providers
+    {
+        public int Id { get; set; }
+        public string Description { get; set; }
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
+        public string BankAccount { get; set; }
+        public string Details { get; set; }
+        public Providers(int id, string description, string email, string phonenumber, string bankaccount,string details)
+        {
+            Id = id;
+            Description = description;
+            Email = email;
+            PhoneNumber = phonenumber;
+            BankAccount = bankaccount;
+            Details = details;
+        }
+        public decimal Amount { get; set; }
+        public Providers(int id, string description, string email, string phonenumber, string bankaccount, string details,decimal amount)
+        {
+            Id = id;
+            Description = description;
+            Email = email;
+            PhoneNumber = phonenumber;
+            BankAccount = bankaccount;
+            Details = details;
+            Amount = amount;
+        }
+    }//
+    public class ProvidersJobs
+    {
+        public int Id { get; set; }
+        public DateTime Date { get; set; }
+        public int ProvidersId { get; set; }
+        public string Details { get; set; }
+        public decimal Amount { get; set; }
+        public string Description { get; set; }
+        public string Proyect { get; set; }
+        public ProvidersJobs(int id, DateTime date, int providerid, string details, decimal amount)
+        {
+            Id = id;
+            Date = date;
+            ProvidersId = providerid;
+            Details = details;
+            Amount = amount;
+        }
+        public decimal AmountPaid { get; set; }
+        public ProvidersJobs(int id, DateTime date, string details, decimal amount,decimal amountpaid)
+        {
+            Id = id;
+            Date = date;
+            Details = details;
+            Amount = amount;
+            AmountPaid = amountpaid;
+        }
+        public ProvidersJobs(int id, DateTime date, string details, decimal amount)
+        {
+            Id = id;
+            Date = date;
+            Details = details;
+            Amount = amount;
+        } 
+        public ProvidersJobs(int id,int providerid, string description,string details)
+        {
+            Id = id;
+            ProvidersId = providerid;
+            Description = description;
+            Details = details;
+        }
+        public ProvidersJobs(int id, DateTime date, string proyect, string details, decimal amount, decimal amountpaid)
+        {
+            Id = id;
+            Date = date;
+            Proyect = proyect;
+            Details = details;
+            Amount = amount;
+            AmountPaid = amountpaid;
+        }
+    }//
+    public class ProvidersJobsPay
+    {
+        public int Id { get; set; }
+        public DateTime Date { get; set; }
+        public int JobId { get; set; }
+        public string Description { get; set; }
+        public decimal Amount { get; set; }
+
+        public ProvidersJobsPay(int id, DateTime date, int jobid, string description, decimal amount)
+        {
+            Id = id;
+            Date = date;
+            JobId = jobid;
+            Description = description;
+            Amount = amount;
+        }
+
+        public ProvidersJobsPay(int id, DateTime date, string description, decimal amount)
+        {
+            Id = id;
+            Date = date;
+            Description = description;
+            Amount = amount;
+        }
+    }
+    public class SubcontractsJobs
+    {
+        public int Id { get; set; }
+        public DateTime Date { get; set; }
+        public int SubcontractsId { get; set; }
+        public int ProyectId { get; set; }
+        public string Details { get; set; }
+        public decimal Amount { get; set; }
+               public string Description { get; set; }
+        public SubcontractsJobs(int id, DateTime date, string proyect, string details, decimal amount)
+        {
+            Id = id;
+            Date = date;
+            Proyect = proyect;
+            Details = details;
+            Amount = amount;
+        }
+        public SubcontractsJobs(int id, DateTime date, int subcontractsid, int proyectid, string details, decimal amount)
+        {
+            Id = id;
+            Date = date;
+            SubcontractsId = subcontractsid;
+            ProyectId = proyectid;
+            Details = details;
+            Amount = amount;
+    }
+        public SubcontractsJobs(int id, int subcontractsId, string description)
+        {
+            Id = id;
+            SubcontractsId = subcontractsId;
+            Description = description;
+        }
+        public decimal AmountPaid { get; set; }
+        public string Proyect { get; set; }
+        public SubcontractsJobs(int id, DateTime date,string proyect, string details, decimal amount, decimal amountpaid)
+        {
+            Id = id;
+            Date = date;
+            Proyect = proyect;
+            Details = details;
+            Amount = amount;
+            AmountPaid = amountpaid;
+        }
+    }//
+    public class SubcontractsJobsPay
+    {
+        public int Id { get; set; }
+        public DateTime Date { get; set; }
+        public int JobId { get; set; }
+        public string Description { get; set; }
+        public decimal Amount { get; set; }
+
+        public SubcontractsJobsPay(int id, DateTime date, int jobid, string description, decimal amount)
+        {
+            Id = id;
+            Date = date;
+            JobId = jobid;
+            Description = description;
+            Amount = amount;
+        }
+    }
+    public class ProyectType
+    {
+        public int Id { get; set; }
+        public string Description { get; set; }
+
+        public ProyectType(int id, string description)
+        {
+            Id = id;
+            Description = description;
+        }
+    }//
+    public class BudgetCalculatorProyect
+    {
+        public int Id { get; set; }
+        public int ProyectId { get; set; }
+        public string Description { get; set; }
+        public decimal Area { get; set; }
+        public decimal PriceMeter { get; set; }
+
+        public BudgetCalculatorProyect(int id, int proyectid, string description, decimal area, decimal pricemeter)
+        {
+            Id = id;
+            ProyectId = proyectid;
+            Description = description;
+            Area = area;
+            PriceMeter = pricemeter;
+        }
+
+        public BudgetCalculatorProyect(string description, decimal area, decimal pricemeter)
+        {
+
+            Description = description;
+            Area = area;
+            PriceMeter = pricemeter;
+        }
+
+    }//
+    public class Hours
+    {
+        public int Id { get; set; }
+        public DateTime Date { get; set; }
+        public int ProyectId { get; set; }
+        public string Details { get; set; }
+        public double Hour { get; set; }
+        public int UserId { get; set; }
+        public int PhaseId { get; set; }
+        public Hours(int id, DateTime date, int proyectid, string details,int phaseid, double hour,int userId)
+        {
+            Id = id;
+            Date = date;
+            Details = details;
+            Hour = hour;
+            ProyectId = proyectid;
+            PhaseId = phaseid;
+   
+        }
+        public string ProjectName { get; set; }
+        public string Fase { get; set; }
+        public Hours(int id, DateTime date, string projectName, string details, string fase, double hour)
+        {
+            Id = id;
+            Date = date;
+            Details = details;
+            Hour = hour;
+            ProjectName = projectName;
+            Fase = fase;
+
+        }
+        public Hours(int id, DateTime date, string projectName, string details, string fase, double hour,int userid)
+        {
+            Id = id;
+            Date = date;
+            Details = details;
+            Hour = hour;
+            ProjectName = projectName;
+            Fase = fase;
+            UserId = userid;
+
+        }
+
+    }//
+    public class Status
+    {
+        public int Id { get; set; }
+        public string Details { get; set; }
+
+        public Status(int id,string details)
+        {
+            Id = id;
+            Details = details;
+        }
+    }//
+    public static class ProjectsSave
+    {
+        public static Project Project;
+
+        public static int Id;
+        public static string ProyectName;
+        public static DateTime Date;
+        public static string Client;
+        public static int ProyectTypeId;
+        public static string Ubication;
+        public static double DurationConceptual;
+        public static double DurationAnteproyecto;
+        public static double DurationArqEjecutivo;
+        public static double DurationIngenierias;
+        public static decimal FeeConceptual;
+        public static decimal FeeAnteproyecto ;
+        public static decimal FeeArqEjecutivo ;
+        public static decimal FeeIngenieria;
+        public static decimal FeeFinal;
+        public static double NumArqs;
+        public static double HorasArqs;
+        public static decimal Subcontrato;
+        public static int Status          ;
+        public static int PremiseType     ;
+        public static double DurationEjecutivo;
+        public static decimal FeeEjecutivo;
+
+        public static List<BudgetCalculatorProyect> budged = new List<BudgetCalculatorProyect>();
+        public static List<PaymentSchedule> payment = new List<PaymentSchedule>();
+        public static List<ManPower> manpowers = new List<ManPower>();
+        public static List<ActivitiesProject> activities = new List<ActivitiesProject>();
+        public static Providers proveedor;
+        public static Subcontracts subcontrato;
+        public static ProvidersJobs providersJobs;
+        public static SubcontractsJobs subcontractsJobs;
+        public static Hours hora;
+        public static int modificar;
+        public static int verhoras;
+        public static Render render;
+        public static int numrenders;
+    }
+    public static class TemporalUser
+    {
+        public static Users UserSaved;
+    }
+    public static class cancelarcaminito
+    {
+        public static int cancelar;
+    }
+        public static class FactorArqs
+    {
+        public static decimal factor = 1.5m;
+    }
+    public static class CaminoTemporal
+    {
+        public static int Camino;
+        //1 Gen
+        //2 Cambios
+              public static int TipoPremisa;
+                 //1 presupuesto y 2prospección(condicionar inicio y final del caminito a update)
+                 //3 proyecto (solo cambiar mano de obra)
+        //3 Consulta
+       
+    }
+}
